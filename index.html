@@ -12,18 +12,22 @@
 </head>
 <body>
     <div class="container">
-        <div class="slider" v-for="(obj, i) in arrImages" :key="obj.image">
-            <div class="selected" :class="{active: i === activeIndex}">
+        <div class="slider" >
+            <div class="selected" v-for="(obj, i) in arrImages" :key="obj.image" :class="{active: i === activeIndex}">
                 <img :src="'img/' + obj.image" :alt="obj.title" class="mod-img">
+                <div class="title">
+                    <h2>{{ obj.title }}</h2>
+                    <p>{{ obj.text }}</p>
+                </div>
             </div>
         </div>
         <div class="img-right">
             <div class="controls">
-                <div class="btn-up"><i class="fa-solid fa-chevron-up"></i></div>
-                <div class="btn-down"><i class="fa-solid fa-chevron-down"></i></div>
+                <div class="btn-up" :class="{activeIndex: activeIndex == 0 }"  @click="activeIndex--"><i class="fa-solid fa-chevron-up"></i></div>
+                <div class="btn-down"  @click="activeIndex++"><i class="fa-solid fa-chevron-down"></i></div>
             </div>
             <div class="card"  v-for="(obj, i) in arrImages" :key="obj.image">
-                <img :src="'img/' + obj.image" :alt="obj.title" class="img-size">
+                <img :src="'img/' + obj.image" :alt="obj.title" class="img-size" :class="{overlay: i === activeIndex}">
             </div>
         </div>
     </div>
