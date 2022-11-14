@@ -23,11 +23,11 @@
         </div>
         <div class="img-right">
             <div class="controls">
-                <div class="btn-up" :class="{activeIndex: activeIndex == 0 }"  @click="activeIndex--"><i class="fa-solid fa-chevron-up"></i></div>
-                <div class="btn-down"  @click="activeIndex++"><i class="fa-solid fa-chevron-down"></i></div>
+                <div class="btn-up"  @click="btnUp()"><i class="fa-solid fa-chevron-up"></i></div>
+                <div class="btn-down" @click="bntDown()"><i class="fa-solid fa-chevron-down"></i></div>
             </div>
-            <div class="card"  v-for="(obj, i) in arrImages" :key="obj.image">
-                <img :src="'img/' + obj.image" :alt="obj.title" class="img-size" :class="{overlay: i === activeIndex}">
+            <div class="card" >
+                <img :src="'img/' + obj.image" :alt="obj.title" class="img-size"  v-for="(obj, i) in arrImages" :key="obj.image" :class="{overlay: i === activeIndex}">
             </div>
         </div>
     </div>

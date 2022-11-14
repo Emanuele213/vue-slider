@@ -29,9 +29,33 @@ const app = new  Vue ({
             },
         ],
 
-        activeIndex : 0,
+        activeIndex: 0,
     },
     methods : {
-        
+
+        btnUp () {
+            if (this.activeIndex == 0){
+                this.activeIndex = 5;
+            }
+            this.activeIndex--;
+        },
+
+        bntDown () {
+            if (this.activeIndex == 4){
+                this.activeIndex = -1;
+            }
+            this.activeIndex++;
+        },
+
+        next () {
+            setInterval (imgNext, 3 * 1000);
+            function imgNext () {
+                if (this.activeIndex == 4){
+                    this.activeIndex = -1;
+                }
+                this.activeIndex++;
+                console.log('hello');
+            }
+        },
     },
 });
