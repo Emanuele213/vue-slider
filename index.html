@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="slider" >
+        <div class="slider" @mouseenter="pauseAutoplay" @mouseleave="resumeAutoplay">
             <div class="selected" v-for="(obj, i) in arrImages" :key="obj.image" :class="{active: i === activeIndex}">
                 <img :src="'img/' + obj.image" :alt="obj.title" class="mod-img">
                 <div class="title">
@@ -27,7 +27,14 @@
                 <div class="btn-down" @click="bntDown()"><i class="fa-solid fa-chevron-down"></i></div>
             </div>
             <div class="card" >
-                <img :src="'img/' + obj.image" :alt="obj.title" class="img-size"  v-for="(obj, i) in arrImages" :key="obj.image" :class="{overlay: i === activeIndex}">
+                <img 
+                :src="'img/' + obj.image" 
+                :alt="obj.title" class="img-size"  
+                v-for="(obj, i) in arrImages" 
+                :key="obj.image" 
+                :class="{overlay: i === activeIndex}"
+                @click="activeIndex = i"
+                >
             </div>
         </div>
     </div>

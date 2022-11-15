@@ -12,7 +12,8 @@ body {
     display: flex;
 	align-items: center;
 	justify-content: center;
-    height: 80%;
+    height: 100%;
+	background-color: black;
 	position: relative;
 }
 
@@ -26,8 +27,8 @@ body {
 
 .slider {
 	position: relative;
-    max-width: 600px;
-    max-height: 500px;;
+    max-width: 805px;
+    max-height: 500px;
 }
 
 .title {
@@ -36,6 +37,7 @@ body {
     justify-content: flex-end;
 	text-align: right;
 	inset: 0;
+	width: 805px;
 	position: absolute;
 	color: white;
 	padding: 1rem;
@@ -48,6 +50,7 @@ body {
 	align-items: center;
 	position: absolute;
 	inset: -50px;
+	color: white;
 }
 
 .btn-up, .btn-down {
@@ -65,17 +68,18 @@ body {
 .selected {
     inset: 0;
     display: none;
-    max-width: 600px;
+    max-width: 805px;
     max-height: 500px;
     color: white;
 }
 
 .mod-img {
-	max-width: 600px;
+	max-width: 805px;
     max-height: 500px;
-	width: 600px;
-    height: 400px;
+	width: 805px;
+    height: 500px;
 	object-fit: cover;
+	border: 2px solid white;
 }
 
 .active {
@@ -90,10 +94,14 @@ body {
 
 .img-size {
 	width: 142px;
-	height: 80px;
+	height: 100px;
 	object-fit: cover;
 	object-position: center;
 	filter: brightness(.5);
+	border-top: 2px solid white;
+	border-right: 2px solid white;
+	border-left: 2px solid white;
+	border-bottom: 1px solid white;
 }
 
 .card {

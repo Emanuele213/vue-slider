@@ -30,6 +30,8 @@ const app = new  Vue ({
         ],
 
         activeIndex: 0,
+        idInterval: 0,
+        isAutoplayActive: true,
     },
     methods : {
 
@@ -46,16 +48,24 @@ const app = new  Vue ({
             }
             this.activeIndex++;
         },
-
-        next () {
-            setInterval (imgNext, 3 * 1000);
-            function imgNext () {
-                if (this.activeIndex == 4){
-                    this.activeIndex = -1;
-                }
-                this.activeIndex++;
-                console.log('hello');
-            }
+        startAutoPlay() {
+            this.idInterval = setInterval(() => this.bntDown(), 3000);
         },
+        stopAutoPlay() {
+			clearInterval(this.idInterval);
+		},
+        pauseAutoplay() {
+			console.log('mouseenter');
+			this.stopAutoPlay();
+		},
+		resumeAutoplay() {
+			console.log('mouseleave');
+			if (this.isAutoplayActive) {
+				this.startAutoPlay();
+			}
+		}
     },
+    mounted() {
+        this.startAutoPlay();
+    }
 });
